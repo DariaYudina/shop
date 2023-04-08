@@ -1,0 +1,12 @@
+
+<ul>
+  <li *ngFor="let product of productsService.getProducts(); index as i;">
+    {{i}}{{': |'+
+      'Name: ' + product.product.name + '| '
+      + 'Description:' + product.product.description + '| '
+      +'Price: '+ product.product.price + '| '
+      + 'is available:' + product.product.isAvailable + '| '
+      + 'Category:' + product.product.category + '|'
+    }}
+  </li>
+</ul>

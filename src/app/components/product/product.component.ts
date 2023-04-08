@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NgForm} from '@angular/forms';
-
+import {IProduct} from '../../models/product.model'
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -8,12 +8,13 @@ import { NgForm} from '@angular/forms';
 })
 
 export class ProductComponent {
-  Name: string = "Name";
-  Description: string = "Description";
-  Price: number = 1000;
-  IsAvailable: boolean = false;
-  Category: Category = 1;
-
+  product: IProduct = {
+    name: "product",
+    description: "description",
+    price: 1000,
+    isAvailable: false,
+    category: Category.category1,
+  }
   onBuy(){
     console.log("Purchase was successful");
     alert("Purchase was successful");
