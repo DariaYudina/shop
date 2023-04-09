@@ -2,7 +2,7 @@
 <p>Product name: {{product.name}}</p>
 <p>Product Description: {{product.description}}</p>
 <p>Product Price: {{product.price}}</p>
-<p>Is Available: {{product.isAvailable}}</p>
+<p>Is Available: {{product.isAvailable ? 'one' : 'two' }}</p>
 <p>Category: {{product.category}}</p>
 
 <input type = "button" value = "Buy" (click)="onBuy()">

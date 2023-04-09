@@ -10,3 +10,12 @@ export enum Category {
    category2 = 2,
     category3 = 3
 };
+export class Product implements IProduct{
+  constructor(
+    public name = '',
+    public description = '',
+    public price = 1000,
+    public isAvailable = false,
+    public category = Category.category1)
+    {}
+}

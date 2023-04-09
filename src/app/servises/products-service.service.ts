@@ -1,16 +1,20 @@
-import { Injectable } from '@angular/core';
-import { ProductComponent } from '../components/product/product.component';
-const products = [
-  new ProductComponent(),
-  new ProductComponent(),
-  new ProductComponent()
+import { Injectable, OnInit } from '@angular/core';
+import { Category, IProduct, Product } from '../models/product.model';
+export const products = [
+  new Product(),
+  new Product(),
+  new Product(),
 ]
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
-  public getProducts(): Array<ProductComponent>{
+export class ProductsService{
+  public getProducts(): Array<IProduct>{
     return products;
+  }
+  public getProduct()
+  {
+    return new Product();
   }
 }
