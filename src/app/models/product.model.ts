@@ -12,8 +12,8 @@ export enum Category {
 };
 export class Product implements IProduct{
   constructor(
-    public name = '',
-    public description = '',
+    public name = 'Name',
+    public description = 'Descripton',
     public price = 1000,
     public isAvailable = false,
     public category = Category.category1)

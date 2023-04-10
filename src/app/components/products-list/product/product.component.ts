@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { NgForm} from '@angular/forms';
-import {IProduct, Product} from '../../models/product.model'
+import {IProduct, Product} from '../../../models/product.model'
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -8,10 +8,14 @@ import {IProduct, Product} from '../../models/product.model'
 })
 
 export class ProductComponent {
-
+  private _product!: Product;
   @Input()
-  product: Product = new Product();
-
+  get product(): Product {
+    return this._product;
+  };
+ set product(value: Product){
+  this._product = value;
+ }
   onBuy(){
     console.log("Purchase was successful");
     alert("Purchase was successful");
