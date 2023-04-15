@@ -1,5 +1,5 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Category, IProduct, Product } from '../models/product.model';
+import { Injectable} from '@angular/core';
+import { IProduct, Product } from '../models/product.model';
 
 export const products = [
   new Product(),

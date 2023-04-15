@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output} from '@angular/core';
-import { IProduct, Product } from 'src/app/models/product.model';
+import { IProduct} from 'src/app/models/product.model';
 import { CartService } from 'src/app/servises/cart.service';
 import { ProductsService } from 'src/app/servises/products-service.service';
 @Component({
@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/servises/products-service.service';
 })
 export class ProductsListComponent implements OnInit {
  @Input()
-  products!: Array<IProduct>;
+  products!: Array<IProduct>
 
   constructor(
     private productsService: ProductsService,
