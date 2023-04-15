@@ -22,8 +22,3 @@ export class ProductComponent {
   }
 }
 
-enum Category {
-  category1 = 1,
-   category2 = 2,
-    category3 = 3
-};

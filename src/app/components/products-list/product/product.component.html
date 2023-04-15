@@ -1,8 +1,14 @@
-<h3>Product info:</h3>
-<p>Product name: {{product.name}}</p>
-<p>Product Description: {{product.description}}</p>
-<p>Product Price: {{product.price}}</p>
-<p>Is Available: {{product.isAvailable ? 'one' : 'two' }}</p>
-<p>Category: {{product.category}}</p>
+<div class="panel panel-default">
+  <div class="panel-heading">Product</div>
+  <div class="panel-body">
+    <ul>
+      <li>Product name: {{product.name}}</li>
+      <li>Product Description: {{product.description}}</li>
+      <li>Product Price: {{product.price}}</li>
+      <li>Is Available: {{product.isAvailable ? 'one' : 'two' }}</li>
+      <li>Category: {{product.category}}</li>
+    </ul>
+    <ng-content></ng-content>
+  </div>
+</div>
 
-<input type = "button" value = "Buy" (click)="onBuy()">

@@ -7,14 +7,15 @@ import { ProductComponent } from './components/products-list/product/product.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductsService } from 'src/app/servises/products-service.service';
-import { CartComponent } from './components/cart/cart.component';
-
+import { CartListComponent } from 'src/app/components/cart-list/cart-list.component'
+import { CartComponent } from './components/cart-list/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     ProductsListComponent,
-    CartComponent,
+    CartListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
