@@ -16,10 +16,5 @@ export class ProductComponent {
   set product(value: Product){
   this._product = value;
   }
-
-  onBuy(){
-    console.log("Purchase was successful");
-    alert("Purchase was successful");
-  }
 }
 

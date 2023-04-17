@@ -1,9 +1,11 @@
-<div *ngIf="getProductsCount() !== 0; else emptyCartMessage" >
+<div *ngIf="products.length !== 0; else emptyCartMessage" >
   <app-product *ngFor="let product of products"
   [product]="product">
   <button (click)="removeItemFromCart(product)">Clear</button>
   </app-product>
   <button (click)="removeAll()">Clear All</button>
+  <p>Products count: {{products.length}}</p>
+  <p>Products price: {{getProductsPriceSumm()}}</p>
 </div>
 
 <ng-template #emptyCartMessage>

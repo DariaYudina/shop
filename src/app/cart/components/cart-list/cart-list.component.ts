@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IProduct, Product } from 'src/app/product/models/product.model';
+import { IProduct} from 'src/app/product/models/product.model';
 import { CartService } from 'src/app/cart/servises/cart.service';
+import { ICartProduct } from '../../models/cart-product.model';
 
 @Component({
   selector: 'app-cart-list',
@@ -9,7 +10,7 @@ import { CartService } from 'src/app/cart/servises/cart.service';
 })
 export class CartListComponent implements OnInit{
   @Input()
-  products!: Array<IProduct>;
+  products!: Array<ICartProduct>;
   constructor(private cartService: CartService){}
 
   ngOnInit(): void
@@ -17,22 +18,22 @@ export class CartListComponent implements OnInit{
     this.products = this.cartService.getProducts();
   }
 
-  addToCart(product: IProduct){
+  addToCart(product: ICartProduct){
     this.cartService.addToCart(product);
-    this.products = this.cartService.getProducts();
+    //this.products = this.cartService.getProducts();
   }
 
-  removeItemFromCart(product: IProduct){
+  removeItemFromCart(product: ICartProduct){
     this.cartService.removeFromCart(product);
-    this.products = this.cartService.getProducts();
+    //this.products = this.cartService.getProducts();
   }
 
   removeAll(){
     this.cartService.removeAll();
-    this.products = this.cartService.getProducts();
+    //this.products = this.cartService.getProducts();
   }
 
-  getProductsCount(){
-    return this.cartService.customer_products.length;
+  getProductsPriceSumm(){
+    return this.cartService.customer_products.reduce((a,b) => a + b.price, 0);
   }
 }

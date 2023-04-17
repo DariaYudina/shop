@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Category, IProduct, Product } from '../../product/models/product.model';
-
+import { IProduct,} from '../../product/models/product.model';
+import { ICartProduct, CartProduct} from '../models/cart-product.model';
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  customer_products: Array<IProduct>;
+  customer_products: Array<ICartProduct>;
   constructor() {
-    this.customer_products = new Array<IProduct>();
+    this.customer_products = new Array<ICartProduct>();
    }
 
   public getProducts() {
@@ -16,14 +16,21 @@ export class CartService {
   }
 
   public addToCart(product: IProduct) {
-    this.customer_products.push(product);
+    const cartProduct: ICartProduct = new CartProduct(
+      product.id,
+      product.name,
+      product.description,
+      product.price,
+      product.isAvailable,
+      product.category)
+    this.customer_products.push(cartProduct);
   }
 
-  removeFromCart(product: IProduct){
-    this.customer_products = this.customer_products.filter(i => i.id !== product.id);
+  removeFromCart(product: ICartProduct){
+    this.customer_products = this.customer_products.filter(i => i.cart_id !== product.cart_id);
   }
 
   removeAll(){
-    this.customer_products = new Array<IProduct>;
+    this.customer_products = new Array<ICartProduct>;
   }
 }

@@ -2,10 +2,11 @@
   <div class="panel-heading">Product</div>
   <div class="panel-body">
     <ul>
+      <li style="font-weight: bold">Product id: {{product.id}}</li>
       <li>Product name: {{product.name}}</li>
       <li>Product Description: {{product.description}}</li>
       <li>Product Price: {{product.price}}</li>
-      <li>Is Available: {{product.isAvailable ? 'one' : 'two' }}</li>
+      <li>Is Available: {{product.isAvailable ? 'Yes' : 'No' }}</li>
       <li>Category: {{product.category}}</li>
     </ul>
     <ng-content></ng-content>
