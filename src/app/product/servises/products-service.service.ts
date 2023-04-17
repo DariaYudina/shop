@@ -10,8 +10,8 @@ export class ProductsService{
   constructor(){
     this.products = [
       new Product(uuidv4(),'Name 1', '', 100, true),
-      new Product(uuidv4(),'Name 2', '', 100, true),
-      new Product(uuidv4(),'Name 3', '', 100, false)
+      new Product(uuidv4(),'Name 2', '', 200, true),
+      new Product(uuidv4(),'Name 3', '', 300, false)
     ]
   }
   public getProducts(): Array<IProduct>{

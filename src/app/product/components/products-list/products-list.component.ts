@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output} from '@angular/core';
 import { IProduct} from 'src/app/product/models/product.model';
 import { CartService } from 'src/app/cart/servises/cart.service';
 import { ProductsService } from 'src/app/product/servises/products-service.service';
+import { ICartProduct } from 'src/app/cart/models/cart-product.model';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -9,19 +10,25 @@ import { ProductsService } from 'src/app/product/servises/products-service.servi
   providers: [ProductsService]
 })
 export class ProductsListComponent implements OnInit {
- @Input()
+  @Input()
   products!: Array<IProduct>
 
   constructor(
     private productsService: ProductsService,
-    private cartService: CartService){}
+    private cartService: CartService) { }
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
     this.products = this.productsService.getProducts();
   }
 
-    addToCart(product: IProduct) {
+  addToCart(product: IProduct) {
+    const productInCart = this.cartService.getProducts().filter(i => i.id === product.id);
+    const productAdded = productInCart.length != 0;
+
+    if(!productAdded){
       this.cartService.addToCart(product);
+    }else{
+      productInCart[0].count += 1;
     }
+  }
 }

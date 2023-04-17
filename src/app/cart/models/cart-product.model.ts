@@ -5,6 +5,7 @@ export interface ICartProduct{
   price: number;
   isAvailable: boolean;
   category: Category;
+  count: number;
   cart_id: string;
 }
 export enum Category {
@@ -22,6 +23,7 @@ export class CartProduct implements ICartProduct{
     public price = 1000,
     public isAvailable = false,
     public category = Category.category1,
-    public cart_id = '')
+    public count = 1,
+    public cart_id = uuidv4())
     {}
 }

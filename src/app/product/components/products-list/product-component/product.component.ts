@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output} from '@angular/core';
 import {Product} from '../../../models/product.model'
 @Component({
   selector: 'app-product',
@@ -9,6 +9,7 @@ import {Product} from '../../../models/product.model'
 export class ProductComponent {
   private _product!: Product;
   @Input()
+  @Output()
   get product(): Product {
     return this._product;
   }
