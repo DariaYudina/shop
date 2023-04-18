@@ -32,7 +32,10 @@ export class CartListComponent implements OnInit{
     this.cartProducts = this.cartService.getProducts();
   }
 
+  getProductsCount(){
+    return this.cartService.customer_products.reduce((a,b) => a + b.price * b.count, 0);
+  }
   getProductsPriceSumm(){
-    return this.cartService.customer_products.reduce((a,b) => a + b.price, 0);
+    return this.cartService.customer_products.reduce((a,b) => a + b.price * b.count, 0);
   }
 }
