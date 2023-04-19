@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartListComponent } from 'src/app/cart/components/cart-list/cart-list.component'
+import { CartComponent } from 'src/app/cart/components/cart-component/cart.component';
+import { CartService } from './servises/cart.service';
+
+@NgModule({
+  declarations: [
+    CartComponent,
+    CartListComponent],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    CartComponent,
+    CartListComponent],
+  providers: [CartService],
+})
+export class CartModule { }
