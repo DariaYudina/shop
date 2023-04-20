@@ -6,14 +6,6 @@ import { ICartProduct } from '../../models/cart-product.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartItemComponent {
-  private _customer_product!: ICartProduct;
-
   @Input()
-  get customer_product(): ICartProduct {
-    return this._customer_product;
-  }
-
-  set customer_product(value: ICartProduct){
-  this._customer_product = value;
-  }
+  customer_product!: ICartProduct;
 }

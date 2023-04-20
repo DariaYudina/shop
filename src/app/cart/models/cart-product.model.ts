@@ -1,12 +1,7 @@
 export interface ICartProduct{
-  id:string;
-  name: string;
-  description: string;
-  price: number;
-  isAvailable: boolean;
-  category: Category;
+  product: IProduct;
   count: number;
-  cart_id: string;
+  cart_id:string;
 }
 export enum Category {
   category1 = 1,
@@ -14,15 +9,11 @@ export enum Category {
     category3 = 3
 }
 
+import { IProduct, Product } from 'src/app/product/models/product.model';
 import {v4 as uuidv4} from 'uuid';
 export class CartProduct implements ICartProduct{
   constructor(
-    public id = uuidv4(),
-    public name = 'Name',
-    public description = 'Descripton',
-    public price = 1000,
-    public isAvailable = false,
-    public category = Category.category1,
+    public product = new Product(),
     public count = 1,
     public cart_id = uuidv4())
     {}

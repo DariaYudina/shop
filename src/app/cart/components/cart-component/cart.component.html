@@ -2,13 +2,13 @@
   <div class="panel-heading">Product</div>
   <div class="panel-body">
     <ul>
-      <!-- <li style="font-weight: bold">Product id: {{customer_product.id}}</li> -->
+      <!-- <li style="font-weight: bold">Product id: {{customer_product.product.id}}</li> -->
       <!-- <li style="font-weight: bold">Cart id: {{customer_product.cart_id}}</li> -->
-      <li>Product name: {{customer_product.name}}</li>
-      <li>Product Description: {{customer_product.description}}</li>
-      <li>Product Price: {{customer_product.price}}</li>
-      <li>Is Available: {{customer_product.isAvailable ? 'Yes' : 'No' }}</li>
-      <li>Category: {{customer_product.category}}</li>
+      <li>Product name: {{customer_product.product.name}}</li>
+      <li>Product Description: {{customer_product.product.description}}</li>
+      <li>Product Price: {{customer_product.product.price}}</li>
+      <li>Is Available: {{customer_product.product.isAvailable ? 'Yes' : 'No' }}</li>
+      <li>Category: {{customer_product.product.category}}</li>
       <li>Count: {{customer_product.count}}</li>
     </ul>
     <ng-content></ng-content>

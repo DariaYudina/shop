@@ -15,15 +15,16 @@ export class CartService {
     return this.customer_products;
   }
 
-  public addToCart(product: IProduct) {
-    const cartProduct: ICartProduct = new CartProduct(
-      product.id,
-      product.name,
-      product.description,
-      product.price,
-      product.isAvailable,
-      product.category)
-    this.customer_products.push(cartProduct);
+  public addToCart(product: ICartProduct) {
+
+    const productInCart = this.customer_products.filter(i => i.product.id === product.product.id);
+    const firstProductAdded = productInCart.length != 0;
+
+    if (!firstProductAdded) {
+      this.customer_products.push(product);
+    } else {
+      productInCart[0].count += product.count;
+    }
   }
 
   removeFromCart(product: ICartProduct){

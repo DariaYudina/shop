@@ -17,8 +17,4 @@ export class ProductsService{
   public getProducts(): Array<IProduct>{
     return this.products;
   }
-  public getProduct()
-  {
-    return new Product();
-  }
 }

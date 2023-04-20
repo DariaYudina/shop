@@ -8,7 +8,7 @@ import { IProduct, Product } from '../../models/product.model'
 
 export class ProductComponent {
   @Input()
-  product!: Product;
+  product!: IProduct;
 
   @Output() productAdded = new EventEmitter<IProduct>();
   addToCart(product: IProduct) {
