@@ -10,7 +10,6 @@
       <li>Category: {{product.category}}</li>
     </ul>
     <button (click)="addToCart(product)" [disabled]="!product.isAvailable">Add to Cart</button>
-    <ng-content></ng-content>
   </div>
 </div>
 

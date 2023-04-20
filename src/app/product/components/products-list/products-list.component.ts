@@ -25,14 +25,4 @@ export class ProductsListComponent implements OnInit {
     this.cartService.addToCart(cartProduct);
   }
 }
-  // addToCart(product: IProduct) {
-  //   const productInCart = this.cartService.getProducts().filter(i => i.id === product.id);
-  //   const productAdded = productInCart.length != 0;
-
-  //   if(!productAdded){
-  //     this.cartService.addToCart(product);
-  //   }else{
-  //     productInCart[0].count += 1;
-  //   }
-  // }
 

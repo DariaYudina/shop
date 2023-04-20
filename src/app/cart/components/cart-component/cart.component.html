@@ -11,6 +11,6 @@
       <li>Category: {{customer_product.product.category}}</li>
       <li>Count: {{customer_product.count}}</li>
     </ul>
-    <ng-content></ng-content>
+   <button (click)="removeFromCart(customer_product)">Clear</button>
   </div>
 </div>

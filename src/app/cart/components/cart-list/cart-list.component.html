@@ -1,7 +1,6 @@
 <div *ngIf="cartProducts.length !== 0; else emptyCartMessage" >
   <app-cart-product *ngFor="let product of cartProducts"
-  [customer_product]="product">
-  <button (click)="removeItemFromCart(product)">Clear</button>
+  [customer_product]="product" (cartProductRemoved) ="removeItemFromCart($event)">
   </app-cart-product>
   <button (click)="removeAll()">Clear All</button>
   <br><br>
