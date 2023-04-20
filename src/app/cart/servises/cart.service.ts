@@ -27,7 +27,7 @@ export class CartService {
   }
 
   removeFromCart(product: ICartProduct){
-    this.customer_products = this.customer_products.filter(i => i.cart_id !== product.cart_id);
+    this.customer_products = this.customer_products.filter(i => i.count > 1? i.count-- : i.cart_id !== product.cart_id);
   }
 
   removeAll(){

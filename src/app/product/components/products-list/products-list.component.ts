@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output} from '@angular/core';
-import { IProduct} from 'src/app/product/models/product.model';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { IProduct } from 'src/app/product/models/product.model';
 import { CartService } from 'src/app/cart/servises/cart.service';
 import { ProductsService } from 'src/app/product/servises/products-service.service';
 @Component({
@@ -9,7 +9,6 @@ import { ProductsService } from 'src/app/product/servises/products-service.servi
   providers: [ProductsService]
 })
 export class ProductsListComponent implements OnInit {
-  @Input()
   products!: Array<IProduct>
 
   constructor(
@@ -20,14 +19,25 @@ export class ProductsListComponent implements OnInit {
     this.products = this.productsService.getProducts();
   }
 
-  addToCart(product: IProduct) {
+  productAdded(product: IProduct) {
     const productInCart = this.cartService.getProducts().filter(i => i.id === product.id);
     const productAdded = productInCart.length != 0;
 
-    if(!productAdded){
+    if (!productAdded) {
       this.cartService.addToCart(product);
-    }else{
+    } else {
       productInCart[0].count += 1;
     }
   }
 }
+  // addToCart(product: IProduct) {
+  //   const productInCart = this.cartService.getProducts().filter(i => i.id === product.id);
+  //   const productAdded = productInCart.length != 0;
+
+  //   if(!productAdded){
+  //     this.cartService.addToCart(product);
+  //   }else{
+  //     productInCart[0].count += 1;
+  //   }
+  // }
+

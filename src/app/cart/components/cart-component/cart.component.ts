@@ -5,7 +5,7 @@ import { ICartProduct } from '../../models/cart-product.model';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartItemComponent {
   private _customer_product!: ICartProduct;
 
   @Input()

@@ -1,5 +1,5 @@
-import { Component, Input, Output} from '@angular/core';
-import {Product} from '../../models/product.model'
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IProduct, Product } from '../../models/product.model'
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,15 +7,12 @@ import {Product} from '../../models/product.model'
 })
 
 export class ProductComponent {
-  private _product!: Product;
   @Input()
-  @Output()
-  get product(): Product {
-    return this._product;
-  }
+  product!: Product;
 
-  set product(value: Product){
-  this._product = value;
+  @Output() productAdded = new EventEmitter<IProduct>();
+  addToCart(product: IProduct) {
+    this.productAdded.emit(product);
   }
 }
 
