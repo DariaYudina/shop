@@ -11,10 +11,9 @@ import { CartProduct, ICartProduct } from 'src/app/cart/models/cart-product.mode
 })
 export class ProductsListComponent implements OnInit {
   products!: Array<IProduct>
-
   constructor(
-    private productsService: ProductsService,
-    private cartService: CartService) { }
+    public productsService: ProductsService,
+    public cartService: CartService) { }
 
   ngOnInit(): void {
     this.products = this.productsService.getProducts();
@@ -23,6 +22,7 @@ export class ProductsListComponent implements OnInit {
   productAdded(product: IProduct) {
     const cartProduct: ICartProduct = new CartProduct(product)
     this.cartService.addToCart(cartProduct);
+    this.cartService.click(cartProduct);
   }
 }
 

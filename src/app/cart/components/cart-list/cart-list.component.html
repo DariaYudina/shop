@@ -4,8 +4,10 @@
   </app-cart-product>
   <button (click)="removeAll()">Clear All</button>
   <br><br>
-  <h4>Products count: {{getProductsCount()}}</h4>
-  <h4>Products price: {{getProductsPriceSumm()}}</h4>
+  <h4>Products count: {{getTotalCount()}}</h4>
+  <h4>Products price: {{getTotalPrice()}}</h4>
+
+  <p>{{ message }}</p>
 </div>
 
 <ng-template #emptyCartMessage>

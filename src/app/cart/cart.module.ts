@@ -9,7 +9,7 @@ import { CartService } from './servises/cart.service';
     CartItemComponent,
     CartListComponent],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     CartItemComponent,
