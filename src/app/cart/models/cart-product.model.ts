@@ -1,6 +1,6 @@
 export interface ICartProduct{
   product: IProduct;
-  count: number;
+  quantity: number;
   cart_id:string;
 }
 export enum Category {
@@ -14,7 +14,7 @@ import {v4 as uuidv4} from 'uuid';
 export class CartProduct implements ICartProduct{
   constructor(
     public product = new Product(),
-    public count = 1,
+    public quantity = 1,
     public cart_id = uuidv4())
     {}
 }

@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class CartService {
   private customer_products: Array<ICartProduct>;
   buttonClick$ = new Subject<ICartProduct>();
+
   constructor() {
     this.customer_products = new Array<ICartProduct>();
    }
@@ -22,7 +23,7 @@ export class CartService {
     if (!firstProductAdded) {
       this.customer_products.push(product);
     } else {
-      productInCart[0].count += product.count;
+      productInCart[0].quantity += product.quantity;
     }
   }
 
@@ -31,7 +32,7 @@ export class CartService {
   }
 
   removeFromCart(product: ICartProduct){
-    this.customer_products = this.customer_products.filter(i => i.count > 1? i.count-- : i.cart_id !== product.cart_id);
+    this.customer_products = this.customer_products.filter(i => i.quantity > 1? i.quantity-- : i.cart_id !== product.cart_id);
   }
 
   removeAll(){
@@ -39,9 +40,9 @@ export class CartService {
   }
 
   getProductsCount(){
-    return this.customer_products.reduce((a,b) => a + b.count, 0);
+    return this.customer_products.reduce((a,b) => a + b.quantity, 0);
   }
   getProductsPriceSumm(){
-    return this.customer_products.reduce((a,b) => a + b.product.price * b.count, 0);
+    return this.customer_products.reduce((a,b) => a + b.product.price * b.quantity, 0);
   }
 }

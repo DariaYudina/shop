@@ -1,13 +1,11 @@
 <div *ngIf="cartProducts.length !== 0; else emptyCartMessage" >
-  <app-cart-product *ngFor="let product of cartProducts"
+  <app-cart-product *ngFor="let product of cartProducts;trackBy: trackBy"
   [customer_product]="product" (cartProductRemoved) ="removeItemFromCart($event)">
   </app-cart-product>
   <button (click)="removeAll()">Clear All</button>
   <br><br>
-  <h4>Products count: {{getTotalCount()}}</h4>
-  <h4>Products price: {{getTotalPrice()}}</h4>
-
-  <p>{{ message }}</p>
+  <h4>Products count: {{totalQuantity}}</h4>
+  <h4>Products price: {{totalPrice}}</h4>
 </div>
 
 <ng-template #emptyCartMessage>

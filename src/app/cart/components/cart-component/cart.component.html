@@ -9,7 +9,7 @@
       <li>Product Price: {{customer_product.product.price}}</li>
       <li>Is Available: {{customer_product.product.isAvailable ? 'Yes' : 'No' }}</li>
       <li>Category: {{customer_product.product.category}}</li>
-      <li>Count: {{customer_product.count}}</li>
+      <li>Count: {{customer_product.quantity}}</li>
     </ul>
    <button (click)="removeFromCart(customer_product)">Clear</button>
   </div>
